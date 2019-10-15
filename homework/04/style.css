@@ -1,0 +1,49 @@
+body,html{margin:0;height:100%;}
+.full {
+  height:100%;
+  width:100%;
+  margin:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#f6eee7;
+}
+
+.center{
+  background-color:#64acfa;
+  width:75px;
+  height:75px;
+  animation:slidein 1s ease-in infinite
+}
+
+.loading{
+  position:absolute;
+  z-index:999;
+  width:100vw;
+  text-align:center;
+  background:transparent;
+  top:calc(50% + 60px);
+  font-family: 'Mansalva', cursive;
+  color:gray
+}
+
+@keyframes slidein {
+  0% {
+    transform:translateX(25px);
+  }
+
+  33%{
+    transform:rotate(0deg);
+    width:15px;
+  }
+  
+  66%{
+    transform:rotate(-90deg) translateX(-25px) translateY(0px);
+    width:15px;
+  }
+  100%{
+    transform:rotate(-90deg) translateX(0px) translateY(25px);
+    width:75px;
+  }
+
+}
