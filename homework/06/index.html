@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Palatte generator</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="https://i.imgur.com/h917uzj.png" type="image/gif">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- import the webpage's javascript file -->
+    <script src="script.js" defer></script>
+  </head>  
+  <body>
+     <div id="responsive">
+       
+    </div>
+     <div id="text">
+       
+     <h1> I'm a simple <span id="title">✏️color palatte generator</span><br></h1>
+       <h3 style="line-height:24px;">
+         
+      
+       Feel free to  press <span style="color:#2196f3">Space</span> to generate new palatte
+       <br>
+<!--          <span style="color:gray"> -->
+       How to screenshot:
+       <br>
+       MacOS:  Shift - Command - 4
+       <br>
+       Windows:  Windows + Shift + S
+      <br>
+<!--          </span> -->
+       </h3>
+      <label class="CheckContainer">Personal Favorite
+        <input type="radio" onclick="handlepersonalfav()" id="personalfav" name="radio">
+        <span class="checkmark"></span>
+      </label>
+       <label class="CheckContainer">Random
+        <input type="radio" onclick="handledefault()" id="default" checked="checked" name="radio">
+        <span class="checkmark"></span>
+      </label>
+      <label class="CheckContainer">Warm
+        <input type="radio" onclick="handlewarm()" name="radio">
+        <span class="checkmark"></span>
+      </label>
+      <label class="CheckContainer">Cold
+        <input type="radio" onclick="handlecold()" name="radio">
+        <span class="checkmark"></span>
+      </label>
+       
+</div>
+    
+
+    <div class="container">
+      
+    </div>
+    <div class="save">
+      <div class="vertical" onclick="save()">
+        Save to personal favorite
+      </div>
+    </div>
+<div class="contact">
+  By: <a href="mailto:chen@newschool.edu">ZiJia Chen</a>
+    </div>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  </body>
+  
+</html>
