@@ -1,0 +1,353 @@
+#layer5 {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  background:black;
+  transition-property: opacity;
+  transition-duration: 2s;
+  justify-content: center;
+  align-items: center;
+  display:none;
+}
+
+#menubar{
+  position:absolute;
+  width: 100vw;
+  bottom: 0vh;
+  left: 0;
+  height: 5vh;
+  background: black;
+  z-index: 100;
+  border-top: 2px white solid;
+  transition-property:opacity;
+  transition-duration:1.5s;
+}
+
+#menubar div{
+  display:inline-block;
+}
+
+#batteryLevel{
+  float:right;
+  padding:1.5vh 1vw;
+  box-sizing:border-box;
+  max-height:5vh;
+}
+
+#batteryasnow{
+  height:2vh;
+}
+#start{
+  line-height:5vh;
+  width:8vw;
+  text-align:center;
+  color:#55AAAA;
+  border-right: 2px white solid;
+  box-sizing:border-box;
+  display:inline-block;
+  font-size:1.5em;
+  cursor:pointer;
+
+}
+
+#start:hover{
+  border:3px white ridge;
+  line-height: calc(5vh - 6px);
+}
+
+#acestart{
+ height:2vh; 
+}
+
+.NewElmnt{
+  text-align:left;
+  border:2px black solid;
+  padding: 30px;
+  line-height:30px;
+  background:white;
+  z-index:9999;
+}
+
+.closetab{
+  float:right;
+  margin-right:10px;
+  cursor:pointer;
+}
+#newElmntDialog{
+  max-width:1000px;
+  display:none;
+  z-index:9999;
+}
+.newElmntInput{
+  float:right;
+  margin-left:20px;
+  height:30px;
+}
+#newElmntSubmit{
+  background-color: black;
+  cursor:pointer;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  margin:auto;
+  text-align: center;
+  border-radius:4px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+  transition-property: opacity;
+  transition-duration: 1s;
+/*   opacity:0.7 */
+}
+
+/* #newElmntSubmit:hover{
+  opacity:1
+}
+ */
+#apps{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100vw;
+  height:95vh;
+  padding:5vh 5vw;
+/*   background-image:url('https://i.pinimg.com/originals/71/ff/b7/71ffb7a0fdaee1fb3bbe312ef9ca7765.gif'); */
+/*   background-image:url('https://static.freemake.com/blog/wp-content/uploads/2014/09/2.jpg'); */
+/*   background-image:url('https://i.pinimg.com/originals/bf/96/48/bf964855128822dce4cf2d51a37a7208.gif'); */
+  background:#55AAAA;
+  background-size:cover;  
+  background-repeat:no-repeat;
+  box-sizing:border-box;
+}
+
+#screensaver{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  padding:5vh 5vw;
+/*   background-image:url('https://i.pinimg.com/originals/a4/6c/fe/a46cfefa789dcaa7fd6c7b39f7ae39b0.gif'); */
+/*   background-size:500px, auto, contain; */
+/*   background-image:url('https://im6.ezgif.com/tmp/ezgif-6-73aff3129999.gif'); */
+  background-image:url('https://cdn.glitch.com/a65c55b1-5c68-45c6-b5a7-5bc4c0f00dd6%2Fezgif-6-1a0d02643c9f.gif?v=1574205602851');
+  background-size:cover;
+  background-position: center;
+/*   background:#FBF7FB; */
+  background-repeat:no-repeat;
+  box-sizing:border-box;
+  z-index:9999;
+/*   display:block; */
+  display:none;
+}
+
+#TimeNow{
+  line-height:5vh;
+  position:relative;
+  float:right;
+/*   color:#F06A73; */
+  padding:0 20px 0px 22px;
+  box-sizing:border-box;
+  border-left:2px white solid;
+  display:inline-block;
+  color: white;
+}
+
+
+
+.items{
+/*   display:flex;
+  justify-content:center;
+  align-items:center; */
+  position:absolute;
+  text-align:center;
+/*   width:100px; */
+  display:inline-block;
+  margin-bottom:50px;
+  margin-right:50px;
+  line-height:30px;
+  color:white;
+  cursor:pointer;
+  padding:10px 20px 0px 20px;
+  box-sizing:border-box;
+  width:120px;
+  z-index:100;
+}
+
+#youtube{
+  top:8vh;
+  left:8vw;
+} 
+
+#twitter{
+  top:24vh;
+  left:8vw;
+}
+
+#linkedin{
+  top:40vh;
+  left:8vw;
+}
+
+#facebook{
+  top:56vh;
+  left:8vw;
+}
+
+#pinterest{
+  top:72vh;
+  left:8vw;
+}
+
+#tumblr{
+  top:8vh;
+  left:calc(8vw + 175px);
+}
+
+#github{
+  top:24vh;
+  left:calc(8vw + 175px);
+}
+
+#flickr{
+  top:40vh;
+  left:calc(8vw + 175px);
+}
+
+#skype{
+  top:56vh;
+  left:calc(8vw + 175px);
+}
+
+#spotify{
+  top:72vh;
+  left:calc(8vw + 175px);
+}
+
+#instagram{
+  top:8vh;
+  left:calc(8vw + 350px);
+}
+
+#zijiachen{
+  top:24vh;
+  left:calc(8vw + 350px);
+}
+
+#notebookToggle{
+  top:40vh;
+  left:calc(8vw + 350px);
+}
+
+#weatherOpen{
+  top:56vh;
+  left:calc(8vw + 350px);
+}
+
+
+.itemlogo {
+  width:80px; 
+}
+
+#apps a{
+  text-decoration:none;
+  color:black;
+}
+
+
+#weather{
+  position:absolute;
+  left:calc(70vw - 302px);;
+  top:20vh;
+/*   background:#f99932; */
+  width:300px;
+  z-index:100;
+
+}
+
+#weatherinfo{
+  width:300px;
+  background:white;
+  min-height:200px;
+  padding:10px;
+  box-sizing:border-box;
+  line-height:36px;
+  font-size:25px;
+  text-align:center;
+  border: 2px black solid;
+}
+
+#weatherasnow{
+  width:150px;
+}
+
+#corf{
+  float:right;
+  cursor:pointer;
+  font-size:0.7em;
+}
+#notebook{
+  position:absolute;
+  left:70vw;
+  top:20vh;
+/*   background:#f99932; */
+  width:300px;
+  z-index:100;
+}
+
+#enternotice{
+  position:absolute;
+  left:calc(100vw - 320px);
+  top:20px;
+/*   background:#f99932; */
+  width:300px;
+  z-index:100;
+}
+
+#noticemsg{
+  background:white;
+  height:100px;
+  padding:10px;
+  font-size:0.9em;
+  line-height:25px;
+  border:2px black solid;
+}
+#notebookOption{
+  display:none;
+}
+
+#notebookText{
+  height:400px;
+  width: 100%;
+  background:white;
+  font-family: "Roboto", sans-serif;
+  border:2px solid black;
+  box-sizing:border-box;
+  display: inline-block;
+  padding: 20px 20px 20px 20px;
+  font-size:1.1vw;
+}
+
+.windowhead{
+  top:0;
+  height:32px;
+  line-height:32px;
+  background:black;
+  text-align:left;
+/*   opacity:0.7; */
+  color:white;
+  padding-left:10px;
+  box-sizing:border-box;
+  cursor: move;
+}
+
+
+
+textarea:focus {
+  outline: none !important;
+}
+textarea:value {
+  color: black;
+}

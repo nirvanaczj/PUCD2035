@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ace @98</title>
+    <link rel="icon" href="https://i.imgur.com/h917uzj.png" type="image/gif" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/layer1.css" />
+    <link rel="stylesheet" href="/layer1_5.css" />
+    <link rel="stylesheet" href="/layer2.css" />
+    <link rel="stylesheet" href="/layer3.css" />
+    <link rel="stylesheet" href="/layer4.css" />
+    <link rel="stylesheet" href="/layer5.css" />
+    <link rel="stylesheet" href="/menu.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Arvo&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Big+Shoulders+Display&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="process"></div>
+    <div id="layer1">
+      <div class="center">
+        <span id="intro"
+          ><img
+            id="logo"
+            src="https://i.imgur.com/oCz1P5m.gif"
+            style="opacity:0.8"
+        /></span>
+        <br />
+        <br /><br />
+        <button id="enterbutton" onclick="init()">
+          => Install Ace98
+        </button>
+        <br /><br />
+        <div class="hr"></div>
+        <!--         <span id="subintro">
+          🚨Warning: Ace 98 <span style="font-family: 'Arvo', serif;color:red">does require</span> webcam
+          to be functional.</span> -->
+      </div>
+    </div>
+
+    <div id="layer1_5">
+      <div class="center" style="box-shadow: 10px 10px 5px #888888;">
+        <div class="headbar">
+          Step1: username
+        </div>
+        <div class="centerform">
+          Hi there! <br /><br />
+          Firstly, Let's get a few things out of the way<br /><br />
+          Username:<br />
+          <input
+            type="text"
+            id="username"
+            name="firstname"
+            placeholder="Jone Doe"
+          />
+
+          <br /><br />
+          <button id="namesubmit" onclick="submitname()">=>Profile pic</button>
+          <div class="hr"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="layer2">
+      <div class="center" style="box-shadow: 10px 10px 5px #888888;">
+        <div class="headbar">
+          Step2: profile picture
+        </div>
+        <div class="centerSelfie">
+          <!--         <span id="selfie">Get your self a Profile picture</span>          
+        <br /><br/> -->
+          <div class="camera">
+            <video id="video">Video stream not available.</video>
+          </div>
+          <canvas id="canvas"> </canvas>
+
+          <br /><br />
+
+          <button id="startbutton">Capture</button>
+          <button id="retake" onclick="retake()">Retake</button>
+          <button id="confirmbutton" onclick="preprocess()">
+            Confirm
+          </button>
+          <div class="hr"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="layer3">
+      <div id="confirmwindow" style="box-shadow: 10px 10px 5px #888888;">
+        <div class="headbar">
+          Step3: comfirm profile
+        </div>
+        <div class="centerdiv">
+          <div id="wrapper">
+            <div id="info">
+              Username:<span
+                id="name"
+                style="text-decoration: underline;"
+              ></span
+              ><br />
+              Age:~<span id="age" style="text-decoration: underline;"></span
+              ><br />
+              Gender:<span
+                id="gender"
+                style="text-decoration: underline;"
+              ></span
+              ><br />
+              Hair Color:<span
+                id="haircolor"
+                style="text-decoration: underline;"
+              ></span
+              ><br />
+              Glasses:<span
+                id="glasses"
+                style="text-decoration: underline;"
+              ></span
+              ><br />
+              Mood:<span id="mood" style="text-decoration: underline;"></span>
+            </div>
+            <div id="imageDiv">
+              <img id="sourceImage" width="200" />
+            </div>
+            <button id="startjourneybutton" onclick="startjourney()">
+              Yeah! this is me
+            </button>
+            <button id="notreally" onclick="notreally()">Not really</button>
+          </div>
+        </div>
+      </div>
+      <div class="hr" style="z-index:100;"></div>
+    </div>
+
+    <div id="layer4">
+      <div class="block">
+        <span id="welcome">Hey, welcome back!</span><br /><br />
+        <img id="photo" />
+        <video id="videoverify">Video stream not available.</video>
+        <br /><br />
+        <button id="verifybutton" onclick="initverify()">Start verify</button>
+        <button id="clearbutton" onclick="clearStorage()">
+          This is not me.
+        </button>
+        <div
+          style="width:100%; align-items:center; margin-top:-20px; display:flex; justify-content:center;text-align:center"
+        >
+          <button id="takeshot">Verify!</button>
+        </div>
+        <canvas id="placeholder"></canvas>
+        <div
+          class="hr"
+          style="bottom:0;height:5vh;border-top:2px solid white;z-index:100;"
+        ></div>
+      </div>
+    </div>
+
+    <div id="layer5">
+      <div id="enternotice">
+        <div class="windowhead" style="cursor:default">
+          Notice<span class="closetab" onclick="closeNotice()">X</span>
+        </div>
+        <div id="noticemsg"></div>
+      </div>
+      <menu id="ctxMenu">
+        <div class="option" id="remove" onclick="deleteitem()">
+          Remove this item
+        </div>
+      </menu>
+
+      <menu id="ctxMenuAll">
+        <div class="option" onclick="clearLayout()">
+          Reset layout
+        </div>
+
+        <div class="option" onclick="toggleCreate()">
+          Create new item
+        </div>
+
+        <div class="option" id="notebookOption" onclick="toggleNotebook()">
+          Open notebook
+        </div>
+      </menu>
+      <div id="menubar">
+        <div id="start" style="display:none;">Start</div>
+        <div id="TimeNow"></div>
+        <div id="batteryLevel">
+          <img id="batteryasnow" />
+        </div>
+      </div>
+      <div id="menu"></div>
+      <div id="apps" onclick="itemnoborder()"></div>
+
+      <div id="allitems">
+        <div
+          class="items"
+          onclick="itemmousedown(this);"
+          ondblclick="window.open('https://www.youtube.com')"
+          onmouseup="itemmouseup(this)"
+          id="youtube"
+        >
+          <img
+            class="itemlogo"
+            src="https://i.imgur.com/3gGSQd3.png"
+          /><br />Youtube
+        </div>
+        <div
+          class="items"
+          onclick="itemmousedown(this);"
+          onmouseup="itemmouseup(this)"
+          ondblclick="window.open('https://www.twitter.com')"
+          id="twitter"
+        >
+          <img
+            class="itemlogo"
+            src="https://i.imgur.com/8yHAJcS.png"
+          /><br />Twitter
+        </div>
+        <div
+          class="items"
+          onclick="itemmousedown(this);"
+          onmouseup="itemmouseup(this)"
+          ondblclick="window.open('https://www.facebook.com')"
+          id="facebook"
+        >
+          <img
+            class="itemlogo"
+            src="https://i.imgur.com/Rwe9dMr.png"
+          /><br />Facebook
+        </div>
+        <br />
+        <div
+          class="items"
+          onclick="itemmousedown(this);"
+          onmouseup="itemmouseup(this)"
+          ondblclick="window.open('https://www.pinterest.com')"
+          id="pinterest"
+        >
+          <img
+            class="itemlogo"
+            src="https://i.imgur.com/FJa52uZ.png"
+          /><br />Pinterest
+        </div>
+        <div
+          class="items"
+          onclick="itemmousedown(this);"
+          onmouseup="itemmouseup(this)"
+          ondblclick="window.open('https://www.spotify.com')"
+          id="spotify"
+        >
+          <img
+            class="itemlogo"
+            src="https://i.imgur.com/lud6AQy.png"
+          /><br />Spotify
+        </div>
+        <div
+          class="items"
+          onclick="itemmousedown(this);"
+          onmouseup="itemmouseup(this)"
+          ondblclick="window.open('https://www.instagram.com')"
+          id="instagram"
+        >
+          <img
+            class="itemlogo"
+            src="https://i.imgur.com/9T6ERCk.png"
+          /><br />Instagram
+        </div>
+        <br />
+        <div
+          class="items"
+          onclick="itemmousedown(this);"
+          onmouseup="itemmouseup(this)"
+          ondblclick="window.open('https://www.tumblr.com')"
+          id="tumblr"
+        >
+          <img
+            class="itemlogo"
+            src="https://i.imgur.com/K52yQL6.png"
+          /><br />Tumblr
+        </div>
+        <div
+          class="items"
+          onclick="itemmousedown(this);"
+          onmouseup="itemmouseup(this)"
+          ondblclick="window.open('https://www.github.com')"
+          id="github"
+        >
+          <img
+            class="itemlogo"
+            src="https://i.imgur.com/5HZ6ZZ4.png"
+          /><br />Github
+        </div>
+        <div
+          class="items"
+          onclick="itemmousedown(this);"
+          onmouseup="itemmouseup(this)"
+          ondblclick="window.open('https://www.flickr.com')"
+          id="flickr"
+        >
+          <img
+            class="itemlogo"
+            src="https://i.imgur.com/a3G3msv.png"
+          /><br />Flickr
+        </div>
+        <br />
+        <div
+          class="items"
+          onclick="itemmousedown(this);"
+          onmouseup="itemmouseup(this)"
+          ondblclick="window.open('https://www.linkedin.com')"
+          id="linkedin"
+        >
+          <img
+            class="itemlogo"
+            src="https://i.imgur.com/GwZxzG2.png"
+          /><br />Linkedin
+        </div>
+        <div
+          class="items"
+          onclick="itemmousedown(this);"
+          onmouseup="itemmouseup(this)"
+          ondblclick="window.open('https://www.skype.com')"
+          id="skype"
+        >
+          <img
+            class="itemlogo"
+            src="https://i.imgur.com/rS8IGdr.png"
+          /><br />Skype
+        </div>
+        <div
+          class="items"
+          onclick="itemmousedown(this);"
+          onmouseup="itemmouseup(this)"
+          ondblclick="window.open('https://www.zijiachen.com')"
+          id="zijiachen"
+        >
+          <img
+            class="itemlogo"
+            src="https://i.imgur.com/h917uzj.png"
+          /><br />About
+        </div>
+        <div
+          class="items"
+          onclick="itemmousedown(this);"
+          onmouseup="itemmouseup(this)"
+          ondblclick="toggleNotebook()"
+          id="notebookToggle"
+        >
+          <img
+            class="itemlogo"
+            src="https://i.imgur.com/lolAOxH.png"
+          /><br />Notebook
+        </div>
+        <div
+          class="items"
+          onclick="itemmousedown(this);"
+          onmouseup="itemmouseup(this)"
+          ondblclick="toggleWeather()"
+          id="weatherOpen"
+        >
+          <img
+            class="itemlogo"
+            src="https://i.imgur.com/B8tHt2K.png"
+          /><br />Weather
+        </div>
+      </div>
+
+      <div id="notebook">
+        <div class="windowhead">
+          Notebook<span class="closetab" onclick="closeNotebook()">X</span>
+        </div>
+        <textarea name="message" id="notebookText" onkeyup="storenote()">
+- This is Ace @98, developed to tribute Windows98, the last Windows version that data harvesting wasn't as overwhelming as today &#13;&#10;&#13;&#10;- Since when data privacy is something that we all want but can never obtain? &#13;&#10;&#13;&#10;- In here, all data is stored in local storage, only utilized your binary image for facial verification.</textarea
+        >
+      </div>
+
+      <div id="weather">
+        <div class="windowhead">
+          Weather<span class="closetab" onclick="closeWeather()">X</span>
+        </div>
+        <div id="weatherinfo">
+          <span id="corf" onclick="switchCF()">℃/℉</span><br />
+          <img id="weatherasnow" /><br />
+          <span id="mainweather"></span><br />
+          <span id="tempasnow" style="font-size:0.7em"></span><br />
+          <span id="templowhigh" style="font-size:0.7em"></span>
+        </div>
+      </div>
+      <div id="newElmntDialog">
+        <div class="windowhead" style="cursor:default">
+          New<span class="closetab" onclick="closeNewDialog()">X</span>
+        </div>
+        <div class="NewElmnt">
+          <span style="font-size:1.4em">Creating new element</span> <br /><br />
+          New element name:<input
+            type="text"
+            class="newElmntInput"
+            id="newElmntName"
+            placeholder="Personal"
+          />
+          <br /><br />
+          New element link:
+          <input
+            type="text"
+            class="newElmntInput"
+            id="newElmntLink"
+            placeholder="https://www.zijiachen.com"
+          /><br /><br />
+          New element img ( in url ):
+          <input
+            type="text"
+            class="newElmntInput"
+            id="newElmntImg"
+            placeholder="https://i.imgur.com/h917uzj.png"
+          /><br /><br />
+          <button id="newElmntSubmit" onclick="submitnew()">
+            =>Grab New item
+          </button>
+        </div>
+      </div>
+      <div id="screensaver"></div>
+    </div>
+    <script src="/process.js"></script>
+    <script src="/rec.js"></script>
+    <script src="/image.js"></script>
+    <script src="/cool.js"></script>
+    <script src="/ace98main.js"></script>
+  </body>
+</html>
