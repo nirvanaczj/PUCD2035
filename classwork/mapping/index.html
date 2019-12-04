@@ -22,19 +22,64 @@
 	}).then(function(svg){ 
 		document.body.innerHTML = svg
 	}).then(function(){
+			loadData()
+		})
+
+
+	function loadData(){
+		fetch('https://robbykraft.github.io/CreativeComputing/class.json').then(function(data){ return data.json()})
+		.then(function(json){
+			for(let i = 0 ; i < json.class.length ; i ++ ){
+				console.log(json.class[i].name)
+				if(!json.class[i].lon){
+					drawSVG(json.class[i].lat, json.class[i].long, json.class[i].name)
+				}
+				else{
+				drawSVG(json.class[i].lat, json.class[i].lon, json.class[i].name)
+			}
+			}
+		})
+	}
+
+	function drawSVG(lat, lon, name){
 		var dot = document.createElement('img')
 		dot.src='https://image.flaticon.com/icons/svg/447/447031.svg'
 		dot.style.width = '25px'
 		dot.style.height = '25px'
-		// dot.style.background = 'black'
+		dot.id = name+'dot'
+		dot.addEventListener("mouseover", display, false);
+		dot.addEventListener("mouseout", disappear, false);
 		dot.style.position = 'absolute'
-		var jieyanglat = 23.535669
-		var jieyanglong = 116.348083
-		dot.style.top = ( 90 - jieyanglat )   * ( 512 / 180 ) - 25  +'px'
-		dot.style.left = (180 + jieyanglong)  * ( 1024 / 360 ) - 12.5 +'px'
+		dot.style.top = ( 90 - lat )   * ( 512 / 180 ) - 25  +'px'
+		dot.style.left = (180 + lon)  * ( 1024 / 360 ) - 12.5 +'px'
 		console.log(dot)
+		var text = document.createElement('span')
+		text.innerHTML = name
+		text.id = name
+		text.style.fontFamily = 'Arial'
+		text.style.fontSize = '0.8em'
+		text.style.position = 'absolute'
+		text.style.display = 'none'
+		text.style.top = ( 90 - lat )   * ( 512 / 180 ) - 12.5  +'px'
+		text.style.left = (180 + lon)  * ( 1024 / 360 ) + 10 +'px'
 		document.body.appendChild(dot)
-	})
+		document.body.appendChild(text)
+	}
+
+	function display(){
+		var imgselected = document.querySelectorAll("img:hover")[0];
+		var spanname = imgselected.getAttribute('id').slice(0,-3)
+		console.log(spanname)
+		var spanselected = document.querySelectorAll(`#${spanname}`)
+		// console.log(spanselected[0])
+		spanselected[0].style.display = 'block'
+	}
+	function disappear(){
+		var allspan = document.querySelectorAll("span")
+		for(let i = 0 ; i < allspan.length; i ++){
+			allspan[i].style.display = 'none'
+		}
+	}
 </script>
 </body>
 </html>
