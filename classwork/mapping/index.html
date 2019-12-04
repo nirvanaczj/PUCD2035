@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<style>
+	body,html{
+		margin:0;
+	}
+/*	svg{
+		width:100%;
+		height:100%;
+	}*/
+	</style>
+<body>
+<script>
+	var image = 'https://robbykraft.github.io/CreativeComputing/earth-map.svg'
+
+	fetch(image).then(function(data){
+		return data.text()
+	}).then(function(svg){ 
+		document.body.innerHTML = svg
+	}).then(function(){
+		var dot = document.createElement('img')
+		dot.src='https://image.flaticon.com/icons/svg/447/447031.svg'
+		dot.style.width = '25px'
+		dot.style.height = '25px'
+		// dot.style.background = 'black'
+		dot.style.position = 'absolute'
+		var jieyanglat = 23.535669
+		var jieyanglong = 116.348083
+		dot.style.top = ( 90 - jieyanglat )   * ( 512 / 180 ) - 25  +'px'
+		dot.style.left = (180 + jieyanglong)  * ( 1024 / 360 ) - 12.5 +'px'
+		console.log(dot)
+		document.body.appendChild(dot)
+	})
+</script>
+</body>
+</html>
